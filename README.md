@@ -1,7 +1,6 @@
 # WordPress 0.71-gold modified to run under PHP 8
 
-This is a fork of WordPress 0.71-gold ( released 9th June 2003 ).
-It's been modified to run under PHP 8.
+This is a fork of WordPress 0.71-gold ( released 9th June 2003 ) which has been modified to run under PHP 8.
 
 mysql> create database b2_20250917;
 
