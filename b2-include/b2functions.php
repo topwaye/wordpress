@@ -546,9 +546,7 @@ function get_commentdata($comment_ID,$no_cache=0) { // less flexible, but saves 
 		$myrow['comment_date']=$postc->comment_date;
 		$myrow['comment_content']=$postc->comment_content;
 		$myrow['comment_karma']=$postc->comment_karma;
-		if (strstr($myrow['comment_content'], '<trackback />')) {
-			$myrow['comment_type'] = 'trackback';
-		} elseif (strstr($myrow['comment_content'], '<pingback />')) {
+		if (strstr($myrow['comment_content'], '<pingback />')) {
 			$myrow['comment_type'] = 'pingback';
 		} else {
 			$myrow['comment_type'] = 'comment';
@@ -573,7 +571,7 @@ function get_catname($cat_ID) {
 
 function profile($user_login) {
 	global $user_data;
-	echo "<a href='b2profile.php?user=".$user_data->user_login."' onclick=\"javascript:window.open('b2profile.php?user=".$user_data->user_login."','Profile','toolbar=0,status=1,location=0,directories=0,menuBar=1,scrollbars=1,resizable=0,width=480,height=320,left=100,top=100'); return false;\">$user_login</a>";
+	echo "<a href='b2profile.php?user=".$user_data->user_login."' onclick=\"javascript:window.open('b2profile.php?user=".$user_data->user_login."','Profile','toolbar=0,status=1,location=0,directories=0,menuBar=1,scrollbars=1,resizable=0,width=800,height=320,left=100,top=100'); return false;\">$user_login</a>";
 }
 
 function dropdown_categories($blog_ID=1) {
@@ -793,71 +791,6 @@ function pingBlogs($blog_ID="1") {
 	} else {
 		return false;
 	}
-}
-
-
-// trackback - send
-function trackback($trackback_url, $title, $excerpt, $ID) {
-	global $siteurl, $blogfilename, $blogname;
-	global $querystring_start, $querystring_equal;
-	$title = urlencode($title);
-	$excerpt = urlencode(stripslashes($excerpt));
-	$blog_name = urlencode($blogname);
-	$url = urlencode($siteurl.'/'.$blogfilename.$querystring_start.'p'.$querystring_equal.$ID);
-	$query_string = "title=$title&url=$url&blog_name=$blog_name&excerpt=$excerpt";
-	if (strstr($trackback_url, '?')) {
-		$trackback_url .= "&".$query_string;;
-		$fp = @fopen($trackback_url, 'r');
-		$result = @fread($fp, 4096);
-		@fclose($fp);
-/* debug code
-		$debug_file = 'trackback.log';
-		$fp = fopen($debug_file, 'a');
-		fwrite($fp, "\n*****\nTrackback URL query:\n\n$trackback_url\n\nResponse:\n\n");
-		fwrite($fp, $result);
-		fwrite($fp, "\n\n");
-		fclose($fp);
-*/
-	} else {
-		$trackback_url = parse_url($trackback_url);
-		$http_request  = 'POST '.$trackback_url['path']." HTTP/1.0\r\n";
-		$http_request .= 'Host: '.$trackback_url['host']."\r\n";
-		$http_request .= 'Content-Type: application/x-www-form-urlencoded'."\r\n";
-		$http_request .= 'Content-Length: '.strlen($query_string)."\r\n";
-		$http_request .= "\r\n";
-		$http_request .= $query_string;
-		$fs = @fsockopen($trackback_url['host'], 80);
-		@fputs($fs, $http_request);
-/* debug code
-		$debug_file = 'trackback.log';
-		$fp = fopen($debug_file, 'a');
-		fwrite($fp, "\n*****\nRequest:\n\n$http_request\n\nResponse:\n\n");
-		while(!@feof($fs)) {
-			fwrite($fp, @fgets($fs, 4096));
-		}
-		fwrite($fp, "\n\n");
-		fclose($fp);
-*/
-		@fclose($fs);
-	}
-	return $result;
-}
-
-// trackback - reply
-function trackback_response($error = 0, $error_message = '') {
-	if ($error) {
-		echo '<?xml version="1.0" encoding="iso-8859-1"?'.">\n";
-		echo "<response>\n";
-		echo "<error>1</error>\n";
-		echo "<message>$error_message</message>\n";
-		echo "</response>";
-	} else {
-		echo '<?xml version="1.0" encoding="iso-8859-1"?'.">\n";
-		echo "<response>\n";
-		echo "<error>0</error>\n";
-		echo "</response>";
-	}
-	die();
 }
 
 function make_url_footnote($content) {

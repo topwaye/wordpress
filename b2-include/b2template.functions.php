@@ -924,7 +924,7 @@ function comments_link($file='', $echo=true) {
 }
 
 function comments_popup_script($width=400, $height=400, $file='b2commentspopup.php') {
-	global $b2commentspopupfile, $b2trackbackpopupfile, $b2pingbackpopupfile, $b2commentsjavascript;
+	global $b2commentspopupfile, $b2pingbackpopupfile, $b2commentsjavascript;
 	$b2commentspopupfile = $file;
 	$b2commentsjavascript = 1;
 	$javascript = "<script language='javascript' type='text/javascript'>\n<!--\nfunction b2open (macagna) {\n    window.open(macagna, '_blank', 'width=$width,height=$height,scrollbars=yes,status=yes');\n}\n//-->\n</script>\n";
@@ -996,10 +996,9 @@ function comment_author_link() {
 	echo '" rel="external">' . $author . '</a>';
 }
 
-function comment_type($commenttxt = 'Comment', $trackbacktxt = 'Trackback', $pingbacktxt = 'Pingback') {
+function comment_type($commenttxt = 'Comment', $pingbacktxt = 'Pingback') {
 	global $comment;
-	if (preg_match('|<trackback />|', $comment->comment_content)) echo $trackbacktxt;
-	elseif (preg_match('|<pingback />|', $comment->comment_content)) echo $pingbacktxt;
+	if (preg_match('|<pingback />|', $comment->comment_content)) echo $pingbacktxt;
 	else echo $commenttxt;
 }
 function comment_author_url() {
@@ -1046,7 +1045,6 @@ function comment_author_IP() {
 function comment_text() {
 	global $comment;
 	$comment_text = stripslashes($comment->comment_content);
-	$comment_text = str_replace('<trackback />', '', $comment_text);
 	$comment_text = str_replace('<pingback />', '', $comment_text);
 	$comment_text = convert_chars($comment_text);
 	$comment_text = convert_bbcode($comment_text);
@@ -1077,43 +1075,6 @@ function comment_time($d='') {
 }
 
 /***** // Comment tags *****/
-
-
-
-/***** TrackBack tags *****/
-
-function trackback_url($display = true) {
-	global $siteurl, $id;
-	$tb_url = $siteurl.'/b2trackback.php/'.$id;
-	if ($display) {
-		echo $tb_url;
-	} else {
-		return $tb_url;
-	}
-}
-
-
-function trackback_rdf($timezone = 0) {
-	global $siteurl, $id, $_SERVER;
-	if (!stristr($_SERVER['HTTP_USER_AGENT'], 'W3C_Validator')) {
-		echo '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" '."\n";
-		echo '    xmlns:dc="http://purl.org/dc/elements/1.1/"'."\n";
-		echo '    xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">'."\n";
-		echo '<rdf:Description'."\n";
-		echo '    rdf:about="';
-		permalink_single();
-		echo '"'."\n";
-		echo '    dc:identifier="';
-		permalink_single();
-		echo '"'."\n";
-		echo '    dc:title="'.addslashes(get_the_title()).'"'."\n";
-		echo '    trackback:ping="'.trackback_url(0).'"'." />\n";
-		echo '</rdf:RDF>';
-	}
-}
-
-/***** // TrackBack tags *****/
-
 
 /***** Permalink tags *****/
 
