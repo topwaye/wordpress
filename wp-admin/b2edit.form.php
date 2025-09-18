@@ -18,11 +18,6 @@ switch($action) {
 		} else {
 			$form_pingback = '';
 		}
-		if ($use_trackback) {
-			$form_trackback = '<p><label for="trackback"><strong>TrackBack</strong> an <acronym title="Uniform Resource Locator">URL</acronym>:</label> (Separate multiple URLs with commas.)<br /><input type="text" name="trackback_url" style="width: 415px" id="trackback" /></p>';
-		} else {
-			$form_trackback = '';
-		}
 		$colspan = 3;
 		break;
 	case "edit":
@@ -33,7 +28,6 @@ switch($action) {
 		$colspan = 2;
 		$form_pingback = '<input type="hidden" name="post_pingback" value="0" />';
 		$form_prevstatus = '<input type="hidden" name="prev_status" value="'.$post_status.'" />';
-		$form_trackback = '';
 		break;
 	case "editcomment":
 		$submitbutton_text = 'Edit this!';
@@ -42,7 +36,6 @@ switch($action) {
 		$form_extra = "' />\n<input type='hidden' name='comment_ID' value='$comment' />\n<input type='hidden' name='comment_post_ID' value='".$commentdata["comment_post_ID"];
 		$colspan = 3;
 		$form_pingback = '<input type="hidden" name="post_pingback" value="0" />';
-		$form_trackback = '';
 		break;
 }
 
@@ -154,8 +147,6 @@ if ($action != 'editcomment') {
 <?php if ( ($use_fileupload) && ($user_level >= $fileupload_minlevel) && ((preg_match("'".$user_login."'", $fileupload_allowedusers)) || (trim($fileupload_allowedusers)=="")) ) { ?>
 <input type="button" value="upload a file/image" onclick="launchupload();" class="search"  tabindex="10" />
 <?php }
-
-echo $form_trackback;
 
 // if the level is 5+, allow user to edit the timestamp - not on 'new post' screen though
 // if (($user_level > 4) && ($action != "post"))

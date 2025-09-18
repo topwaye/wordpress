@@ -1,6 +1,5 @@
 <?php
-$title = "Template(s) &amp; file editing";
-/* <Template> */
+$title = "Template &amp; file editing";
 
 if ( !function_exists('get_magic_quotes_gpc') ) {
     function get_magic_quotes_gpc()
@@ -47,7 +46,7 @@ switch($action) {
 case 'update':
 
 	$standalone = 1;
-	require("b2header.php");
+	require_once("b2header.php");
 
 	if ($user_level < 3) {
 		die('<p>You have no right to edit the template for this blog.<br />Ask for a promotion to your <a href="mailto:$admin_email">blog admin</a>. :)</p>');
@@ -66,8 +65,8 @@ case 'update':
 break;
 
 default:
-
-	require('b2header.php');
+	$standalone=0;
+	require_once('b2header.php');
 
 	if ($user_level <= 3) {
 		die('<p>You have no right to edit the template for this blog.<br>Ask for a promotion to your <a href="mailto:$admin_email">blog admin</a>. :)</p>');
@@ -103,7 +102,7 @@ default:
 		$f = fopen($file, 'r');
 		$content = fread($f, filesize($file));
 		$content = htmlspecialchars($content);
-//		$content = str_replace("</textarea","&lt;/textarea",$content);
+	//	$content = str_replace("</textarea","&lt;/textarea",$content);
 	}
 
 	?>

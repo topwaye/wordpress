@@ -25,7 +25,7 @@ if (!get_magic_quotes_gpc()) {
     $_COOKIE = add_magic_quotes($_COOKIE);
 }
 
-$b2varstoreset = array('action','safe_mode','withcomments','c','posts','poststart','postend','content','edited_post_title','comment_error','profile', 'trackback_url', 'excerpt'
+$b2varstoreset = array('action','safe_mode','withcomments','c','posts','poststart','postend','content','edited_post_title','comment_error','profile', 'excerpt'
 , 'post_status', 'comment_status', 'ping_status', 'post_password');
 for ($i=0; $i<count($b2varstoreset); $i += 1) {
     $b2var = $b2varstoreset[$i];
@@ -98,15 +98,6 @@ switch($action) {
                 pingback($content, $post_ID);
             }
 
-            if (!empty($_POST['trackback_url'])) {
-                $excerpt = (strlen(strip_tags($content)) > 255) ? substr(strip_tags($content), 0, 252).'...' : strip_tags($content);
-                $excerpt = stripslashes($excerpt);
-                $trackback_urls = explode(',', $_POST['trackback_url']);
-                foreach($trackback_urls as $tb_url) {
-                    $tb_url = trim($tb_url);
-                    trackback($tb_url, stripslashes($post_title), $excerpt, $post_ID);
-                }
-            }
         } // end if publish
 
         if (!empty($_POST["mode"])) {
@@ -221,15 +212,6 @@ switch($action) {
                 pingback($content, $post_ID);
             }
 
-            if (!empty($_POST['trackback_url'])) {
-                $excerpt = (strlen(strip_tags($content)) > 255) ? substr(strip_tags($content), 0, 252).'...' : strip_tags($content);
-                $excerpt = stripslashes($excerpt);
-                $trackback_urls = explode(',', $_POST['trackback_url']);
-                foreach($trackback_urls as $tb_url) {
-                    $tb_url = trim($tb_url);
-                    trackback($tb_url, stripslashes($post_title), $excerpt, $post_ID);
-                }
-            }
         } // end if publish
 
         $location = "Location: b2edit.php";

@@ -201,9 +201,8 @@ case 'IErightclick':
 	$profile = 1;
 	include ('b2header.php');
 
-	$bookmarklet_tbpb  = ($use_trackback) ? '&trackback=1' : '';
-	$bookmarklet_tbpb .= ($use_pingback)  ? '&pingback=1'  : '';
-	$bookmarklet_height= ($use_trackback) ? 340 : 300;
+	$bookmarklet_tbpb = ($use_pingback)  ? '&pingback=1'  : '';
+	$bookmarklet_height= ($use_pingback) ? 340 : 300;
 
 	?>
 
@@ -235,14 +234,13 @@ break;
 
 
 default:
-
+	$standalone = 0;
 	$profile = 1;
 	include ('b2header.php');
 	$profiledata=get_userdata($user_ID);
 
-	$bookmarklet_tbpb  = ($use_trackback) ? '&trackback=1' : '';
-	$bookmarklet_tbpb .= ($use_pingback)  ? '&pingback=1'  : '';
-	$bookmarklet_height= ($use_trackback) ? 340 : 300;
+	$bookmarklet_tbpb = ($use_pingback)  ? '&pingback=1'  : '';
+	$bookmarklet_height= ($use_pingback) ? 340 : 300;
 
 	?>
 <h1 id="wphead"><a href="http://wordpress.org" rel="external"><span>WordPress</span></a></h1> 
@@ -298,28 +296,6 @@ default:
   </p>
   </div>
   <div class="right">
-  <p><strong>Identity</strong> on the blog: 
-    <select name="newuser_idmode">
-      <option value="nickname"<?php
-	if ($profiledata->user_idmode == 'nickname')
-	echo " selected"; ?>><?php echo $profiledata->user_nickname ?></option>
-      <option value="login"<?php
-	if ($profiledata->user_idmode=="login")
-	echo " selected"; ?>><?php echo $profiledata->user_login ?></option>
-      <option value="firstname"<?php
-	if ($profiledata->user_idmode=="firstname")
-	echo " selected"; ?>><?php echo $profiledata->user_firstname ?></option>
-      <option value="lastname"<?php
-	if ($profiledata->user_idmode=="lastname")
-	echo " selected"; ?>><?php echo $profiledata->user_lastname ?></option>
-      <option value="namefl"<?php
-	if ($profiledata->user_idmode=="namefl")
-	echo " selected"; ?>><?php echo $profiledata->user_firstname." ".$profiledata->user_lastname ?></option>
-      <option value="namelf"<?php
-	if ($profiledata->user_idmode=="namelf")
-	echo " selected"; ?>><?php echo $profiledata->user_lastname." ".$profiledata->user_firstname ?></option>
-    </select>
-  </p>
   <p> <br />
     New <strong>Password</strong> (Leave blank to stay the same.)<br />
     <input type="password" name="pass1" size="16" value="" />

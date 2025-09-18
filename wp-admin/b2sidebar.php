@@ -102,11 +102,6 @@ textarea,input,select {
 
 <input type="submit" name="submit" value="Blog this !" class="search" tabindex="3" /> 
 
-<?php
-if ($use_trackback) { ?>
-<br /><label for="trackback"><b>TrackBack</b> an URL:</label><br /><input type="text" name="trackback_url" style="width: 100%" id="trackback" tabindex="7" />
-<?php } ?>
-
 <script language="JavaScript">
 <!--
 //				document.blog.post_content.focus();
