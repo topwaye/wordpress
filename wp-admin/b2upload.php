@@ -135,7 +135,7 @@ if (!empty($_POST)) { //$img1_name != "") {
 	$imgdesc = str_replace('"', '&amp;quot;', $_POST['imgdesc']);
 
 	$imgtype = explode(".",$img1_name);
-	$imgtype = " ".$imgtype[count($imgtype)-1]." ";
+	$imgtype = "/".$imgtype[count($imgtype)-1]."/";
 
 	if (!preg_match(strtolower($imgtype), strtolower($fileupload_allowedtypes))) {
 	    die("File $img1_name of type $imgtype is not allowed.");
@@ -206,7 +206,7 @@ if (!empty($_POST)) { //$img1_name != "") {
 }
 
 
-if ( preg_match('image/',$img1_type)) {
+if ( preg_match('/image//',$img1_type)) {
 	$piece_of_code = "&lt;img src=&quot;$fileupload_url/$img1_name&quot; border=&quot;0&quot; alt=&quot;$imgdesc&quot; /&gt;"; 
 } else {
 	$piece_of_code = "&lt;a href=&quot;$fileupload_url/$img1_name&quot; title=&quot;$imgdesc&quot; /&gt;$imgdesc&lt;/a&gt;"; 
