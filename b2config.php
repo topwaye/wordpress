@@ -150,11 +150,6 @@ $blodotgsping_url = $siteurl;
 
 
 // ** Trackback / PingBack **
-
-// set this to 0 or 1, whether you want to allow your posts to be trackback'able or not
-// note: setting it to zero would also disable sending trackbacks
-$use_trackback = 1;
-
 // set this to 0 or 1, whether you want to allow your posts to be pingback'able or not
 // note: setting it to zero would also disable sending pingbacks
 $use_pingback = 1;

@@ -125,61 +125,18 @@ case "register":
 <head>
 <title>b2 > Registration complete</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" href="<?php echo $b2inc; ?>/b2.css" type="text/css">
-<style type="text/css">
-<!--
-<?php
-if (!preg_match("/Nav/",$HTTP_USER_AGENT)) {
-?>
-textarea,input,select {
-	background-color: #f0f0f0;
-	border-width: 1px;
-	border-color: #cccccc;
-	border-style: solid;
-	padding: 2px;
-	margin: 1px;
-}
-<?php
-}
-?>
--->
-</style>
+<link rel="stylesheet" href="<?php echo $siteurl; ?>/wp-admin/b2.css" type="text/css" />
 </head>
-<body bgcolor="#ffffff" text="#000000" link="#cccccc" vlink="#cccccc" alink="#ff0000">
-
-<table width="100%" height="100%">
-<td align="center" valign="middle">
-
-<table width="200" height="200" style="border: 1px solid #cccccc;" cellpadding="0" cellspacing="0">
-
-<tr height="50">
-<td height="50" width="50">
-<a href="http://wordpress.org" target="_blank"><img src="http://wordpress.org/images/wp-small.png" style="border:0" /></a>
-</td>
-<td class="b2menutop" align="center">
-registration<br />complete
-</td>
-</tr>
-
-<tr height="250"><td align="right" valign="bottom" height="150" colspan="2">
-
-<table width="280">
-<tr><td align="right" colspan="2">login: <b><?php echo $user_login ?>&nbsp;</b></td></tr>
-<tr><td align="right" colspan="2">password: <b><?php echo $stars ?>&nbsp;</b></td></tr>
-<tr><td align="right" colspan="2">e-mail: <b><?php echo $user_email ?>&nbsp;</b></td></tr>
-<tr><td width="90">&nbsp;</td>
-<td><form name="login" action="b2login.php" method="post">
-<input type="hidden" name="log" value="<?php echo $user_login ?>" />
-<input type="submit" class="search" value="Login" name="submit" /></form></td></tr>
-</table>
-</td>
-</tr>
-</table>
-
-</td>
-</tr>
-</table>
-
+<body>
+<div id="login"> 
+	<h2>Registration Complete</h2>
+	<p>Login: <strong><?php echo $user_login; ?></strong><br />
+	Password: <strong><?php echo $stars; ?></strong><br />
+	E-mail: <strong><?php echo $user_email; ?></strong></p>
+	<form action="b2login.php" method="post" name="login">
+		<input type="hidden" name="log" value="<?php echo $user_login; ?>" />
+		<input type="submit" value="Login" name="submit" />
+	</form>
 </div>
 </body>
 </html>
@@ -193,57 +150,15 @@ case "disabled":
 <head>
 <title>b2 > Registration Currently Disabled</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" href="<?php echo $b2inc; ?>/b2.css" type="text/css">
-<style type="text/css">
-<!--
-<?php
-if (!preg_match("/Nav/",$HTTP_USER_AGENT)) {
-?>
-textarea,input,select {
-	background-color: #f0f0f0;
-	border-width: 1px;
-	border-color: #cccccc;
-	border-style: solid;
-	padding: 2px;
-	margin: 1px;
-}
-<?php
-}
-?>
--->
-</style>
+<link rel="stylesheet" href="<?php echo $siteurl; ?>/wp-admin/b2.css" type="text/css" />
 </head>
-<body bgcolor="#ffffff" text="#000000" link="#cccccc" vlink="#cccccc" alink="#ff0000">
-
-<table width="100%" height="100%">
-<td align="center" valign="middle">
-
-<table width="200" height="200" style="border: 1px solid #cccccc;" cellpadding="0" cellspacing="0">
-
-<tr height="50">
-<td height="50" width="50">
-<a href="http://wordpress.org" target="_blank"><img src="http://wordpress.org/images/wp-small.png" /></a>
-</td>
-<td class="b2menutop" align="center">
-registration disabled<br />
-</td>
-</tr>
-
-<tr height="150">
-<td align="center" valign="center" height="150" colspan="2">
-<table width="80%" height="100%">
-<tr><td class="b2menutop">
-User registration is currently not allowed.<br />
-<a href="<?php echo $siteurl.'/'.$blogfilename; ?>" >Home</a>
-</td></tr></table>
-</td>
-</tr>
-</table>
-
-</td>
-</tr>
-</table>
-
+<body>
+<div id="login">
+	<h2>Registration Disabled</h2>
+	<p>User registration is currently not allowed.<br />
+	<a href="<?php echo $siteurl.'/'.$blogfilename; ?>" title="Go back to the blog">Home</a>
+	</p>
+</div>
 </body>
 </html>
 
@@ -256,84 +171,21 @@ default:
 <head>
 <title>b2 > Register form</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" href="<?php echo $b2inc; ?>/b2.css" type="text/css">
-<style type="text/css">
-<!--
-<?php
-if (!preg_match("/Nav/",$HTTP_USER_AGENT)) {
-?>
-textarea,input,select {
-	background-color: #f0f0f0;
-	border-width: 1px;
-	border-color: #cccccc;
-	border-style: solid;
-	padding: 2px;
-	margin: 1px;
-}
-<?php
-}
-?>
--->
-</style>
+<link rel="stylesheet" href="<?php echo $siteurl; ?>/wp-admin/b2.css" type="text/css" />
 </head>
-<body bgcolor="#ffffff" text="#000000" link="#cccccc" vlink="#cccccc" alink="#ff0000">
-
-<table width="100%" height="100%">
-<td align="center" valign="middle">
-
-<table width="250" height="250" style="border: 1px solid #cccccc;" cellpadding="0" cellspacing="0">
-
-<tr>
-<td>
-<a href="http://wordpress.org"  title="visit WordPress dot org"  target="_blank"><img src="http://wordpress.org/images/wp-small.png" alt="visit WordPress dot org" style="border:0;" /></a>
-</td>
-<td class="b2menutop" align="center">
-registration<br />
-</td>
-</tr>
-
-<tr height="150"><td align="right" valign="bottom" height="150" colspan="2">
-
+<body>
+<div id="login">
+<h2>Registration</h2>
 <form method="post" action="b2register.php">
-<input type="hidden" name="action" value="register" />
-<table border="0" width="180" class="menutop" style="background-color: #ffffff">
-<tr> 
-<td width="150" align="right">login</td>
-<td>
-<input type="text" name="user_login" size="8" maxlength="20" />
-</td>
-</tr>
-<tr> 
-<td align="right">password<br />(twice)</td>
-<td> 
-<input type="password" name="pass1" size="8" maxlength="100" />
-<br />
-<input type="password" name="pass2" size="8" maxlength="100" />
-</td>
-</tr>
-<tr> 
-<td align="right">e-mail</td>
-<td>
-<input type="text" name="user_email" size="8" maxlength="100" />
-</td>
-</tr>
-<tr> 
-<td>&nbsp;</td>
-<td><input type="submit" value="OK" class="search" name="submit">
-</td>
-</tr>
-</table>
-
+	<input type="hidden" name="action" value="register" />
+	<label for="user_login">Login:</label> <input type="text" name="user_login" id="user_login" size="10" maxlength="20" /><br />
+	<label for="pass1">Password:</label> <input type="password" name="pass1" id="pass1" size="10" maxlength="100" /><br />
+ 
+	<input type="password" name="pass2" size="10" maxlength="100" /><br />
+	<label for="user_email">E-mail</label>: <input type="text" name="user_email" id="user_email" size="15" maxlength="100" /><br />
+	<input type="submit" value="OK" class="search" name="submit" />
 </form>
-
-</td>
-</tr>
-</table>
-
-</td>
-</tr>
-</table>
-
+</div>
 </body>
 </html>
 	<?php

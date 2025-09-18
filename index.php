@@ -45,8 +45,6 @@ require($abspath.'wp-links/links.php');
 	<?php comments_popup_link('Comments (0)', 'Comments (1)', 'Comments (%)'); ?> 
 </div>
 
-<?php trackback_rdf(); ?>
-
 <?php include('b2comments.php'); ?>
 
 	<?php } } // end foreach, end if any posts ?> 
