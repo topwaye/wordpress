@@ -184,4 +184,33 @@ Post contents:I am a new user.
 
 END: 1758193053
 ****************************
+BEGIN 1758203685
+Post contents:<a href=\\\"http://localhost/wp-admin/b2profile.php\\\">WordPress > Profile</a>
+
+Processing -- http://localhost/wp-admin/b2profile.php
+
+Pingback server not found
+
+*************************
+
+
+END: 1758203690
+****************************
+BEGIN 1758206888
+Post contents:this is a test
+
+END: 1758206888
+****************************
+BEGIN 1758206903
+Post contents:<a href=\\\"http://localhost/wp-admin/b2profile.php\\\">WordPress > Profile</a>
+
+Processing -- http://localhost/wp-admin/b2profile.php
+
+Pingback server not found
+
+*************************
+
+
+END: 1758206908
+****************************
 
