@@ -59,9 +59,10 @@ Click on create a launch.json file. It should create default configuration as th
 Do NOT touch it.
 
 ### Run and Debug
-Open any PHP file.  
+Open any PHP file in VSCode.  
 Click in the left margin next to a line number or press F9 to set a breakpoint.  
-Run the debugger (F5) and **execute the PHP script in your browser**.  
-The script execution will pause at the breakpoint.
+Run the debugger (F5).  
+**Execute the PHP file in your Browser**.  
+The file execution will pause at the breakpoint.
 
 topwaye@hotmail.com
