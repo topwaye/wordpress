@@ -6,7 +6,7 @@ mysql> create database b2_20250917;
 
 Modify b2config.php as follows:
 
-// $siteurl is your blog's URL (no trailing slash !)
+>// $siteurl is your blog's URL (no trailing slash !)
 
 $siteurl = 'http://localhost'; // Double check this, it's very important
 
