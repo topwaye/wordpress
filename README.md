@@ -14,7 +14,7 @@ Modify b2config.php as follows:
 >
 >define('DB_NAME', 'b2_20250917'); // The name of the database  
 >define('DB_USER', 'root');        // Your MySQL username  
->define('DB_PASSWORD', '123456');  // ...and password
+>define('DB_PASSWORD', '123456');  // ...and password  
 >define('DB_HOST', 'localhost');   // 99% chance you won't need to change this value
 
 Launch wp-install.php in your browser: http://localhost/wp-admin/wp-install.php
