@@ -41,7 +41,8 @@ Click on edit in settings.json. Add the following configuration:
 ```
 {
     "workbench.colorTheme": "Default Light Modern",
-    "php.validate.executablePath": "c:/php8/php.exe"
+    "php.validate.executablePath": "c:/php8/php.exe",
+    "php.debug.executablePath": "c:/php8/php.exe"
 }
 ```
 ### Configure VSCode Debugger
