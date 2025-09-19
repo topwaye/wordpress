@@ -21,9 +21,9 @@ Launch wp-install.php in your browser: http://localhost/wp-admin/wp-install.php
 
 Go to b2login.php and sign in with the login "admin" and the password, then click on the menu 'My Profile', and change the password.
 
-##Debugging PHP with VSCode and XDebug
+## Debugging PHP with VSCode and XDebug
 
-###Configure PHP
+### Configure PHP
 Edit your php.ini file and add the following configuration:
 ```
 [xdebug]
@@ -35,7 +35,7 @@ xdebug.client_host=localhost
 ```
 Ensure your Apache service is restarted for any changes made in php.ini to take effect.
 
-###Configure VSCode PHP
+### Configure VSCode PHP
 Drop down the menu bar in VSCode: File > Perferences > Settings > Extensions > PHP  
 Click on edit in settings.json. Add the following configuration:
 ```
@@ -44,7 +44,7 @@ Click on edit in settings.json. Add the following configuration:
     "php.validate.executablePath": "c:/php8/php.exe"
 }
 ```
-###Configure VSCode Debugger
+### Configure VSCode Debugger
 Open your project in VSCode.  
 Go to the Run and Debug panel (Ctrl+Shift+D).  
 Click on create a launch.json file. It should create default configuration as the following with port 9003.
@@ -58,7 +58,7 @@ Click on create a launch.json file. It should create default configuration as th
 ```
 Do NOT touch it.
 
-###Run and Debug
+### Run and Debug
 Open any PHP file.  
 Click in the left margin next to a line number or press F9 to set a breakpoint.  
 Run the debugger (F5) and execute the PHP script in your browser.  
