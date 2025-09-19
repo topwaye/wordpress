@@ -61,7 +61,7 @@ Do NOT touch it.
 ### Run and Debug
 Open any PHP file.  
 Click in the left margin next to a line number or press F9 to set a breakpoint.  
-Run the debugger (F5) and execute the PHP script in your browser.  
+Run the debugger (F5) and **execute the PHP script in your browser**.  
 The script execution will pause at the breakpoint.
 
 topwaye@hotmail.com
